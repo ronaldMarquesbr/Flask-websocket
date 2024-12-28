@@ -54,5 +54,10 @@ def payment_pix_page(payment_id):
                            qr_code=payment.qr_code)
 
 
+@socketio.on("connect")
+def handle_connect():
+    print("Cliente conectado")
+
+
 if __name__ == "__main__":
     socketio.run(app=app, port=8000, debug=True)
