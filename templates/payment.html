@@ -62,7 +62,12 @@
   <script>
       const socket = io.connect("{{ host }}");
       socket.on("connect", () => {
-          console.log("Connected")
+          console.log("Connected");
+      });
+
+      socket.on("payment-confirmed-{{ payment_id }}", () => {
+          console.log("Pagamento confirmado");
+          location.reload();
       });
   </script>
   </body>
